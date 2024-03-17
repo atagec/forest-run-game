@@ -31,8 +31,8 @@ export default class Preloader extends Phaser.Scene {
     this.load.image(TextureKeys.Bookcase1, 'house/mega-tree-1.png')
     this.load.image(TextureKeys.Bookcase2, 'house/mega-tree-3.png')
 
-    this.load.image(TextureKeys.LaserEnd, 'house/dark_totem_dark_shadow5.png')
-    this.load.image(TextureKeys.LaserMiddle, 'house/object_laser.png')
+    this.load.image(TextureKeys.LaserEnd, 'house/blade_3.png')
+    this.load.image(TextureKeys.LaserMiddle, 'house/small_post.png')
     
     this.load.image(TextureKeys.Coin, 'house/object_coin.png')
   }

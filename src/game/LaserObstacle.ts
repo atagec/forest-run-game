@@ -9,8 +9,10 @@ export default class LaserObstacle extends Phaser.GameObjects.Container {
     const top = scene.add.image(0, 0, TextureKeys.LaserEnd) 
         .setOrigin(0.5, 0)
 
+    top.setDisplaySize(60, 60)
+
     // create a middle and set it below the top
-    const middle = scene.add.image(
+    const middle1 = scene.add.image(
       0,
       top.y + top.displayHeight,
       TextureKeys.LaserMiddle
@@ -18,16 +20,26 @@ export default class LaserObstacle extends Phaser.GameObjects.Container {
     .setOrigin(0.5, 0)
 
     // set height of middle laster to 200px
-    middle.setDisplaySize(middle.width, 200)
+    // middle.setDisplaySize(middle.width, 200)
+    middle1.setDisplaySize(60, 100)
+
+    const middle2 = scene.add.image(
+      0,
+      middle1.y + middle1.displayHeight,
+      TextureKeys.LaserMiddle
+    )
+    .setOrigin(0.5, 0)
+    middle2.setDisplaySize(60, 100)
 
     // create a bottom that is flipped and below the middle
-    const bottom = scene.add.image(0, middle.y + middle.displayHeight, TextureKeys.LaserEnd)
+    const bottom = scene.add.image(0, middle1.y + middle2.y + middle2.displayHeight , TextureKeys.LaserEnd)
         .setOrigin(0.5, 0)
         .setFlipY(true)
+    bottom.setDisplaySize(60, 60)
 
     // add them all to the Container
     this.add(top)
-    this.add(middle)
+    this.add(middle1)
     this.add(bottom)
 
 
@@ -35,7 +47,7 @@ export default class LaserObstacle extends Phaser.GameObjects.Container {
 
     const body = this.body as Phaser.Physics.Arcade.StaticBody
     const width = top.displayWidth
-    const height = top.displayHeight + middle.displayHeight + bottom.displayHeight
+    const height = top.displayHeight + middle1.displayHeight + middle2.displayHeight + bottom.displayHeight
 
     body.setSize(width, height)
     body.setOffset(-width * 0.5, 0)
