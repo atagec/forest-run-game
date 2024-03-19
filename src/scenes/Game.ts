@@ -225,6 +225,7 @@ export default class Game extends Phaser.Scene {
       // make sure coin is active and visible
       coin.setVisible(true)
       coin.setActive(true)
+      coin.setDisplaySize(50, 50)
 
       // enable and adjust the physics body to be circle
       const body = coin.body as Phaser.Physics.Arcade.StaticBody
